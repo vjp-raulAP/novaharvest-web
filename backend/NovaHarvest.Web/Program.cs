@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
+app.UseStaticFiles();
 
 app.MapGet("/", () => Results.Content("""
     <!DOCTYPE html>
@@ -8,6 +9,7 @@ app.MapGet("/", () => Results.Content("""
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NovaHarvest</title>
+        <link rel="stylesheet" href="/css/site.css">
     </head>
     <body>
         <h1>NovaHarvest</h1>
@@ -22,6 +24,8 @@ app.MapGet("/", () => Results.Content("""
     <head>
         <meta charset="UTF-8">
         <title>Sobre NovaHarvest</title>
+        <link rel="stylesheet" href="/css/site.css">
+        
     </head>
     <body>
         <h1>Sobre NovaHarvest</h1>
@@ -37,6 +41,7 @@ app.MapGet("/", () => Results.Content("""
     <head>
         <meta charset="UTF-8">
         <title>Estado del servidor</title>
+        <link rel="stylesheet" href="/css/site.css">
     </head>
     <body>
         <h1>Estado del servidor</h1>

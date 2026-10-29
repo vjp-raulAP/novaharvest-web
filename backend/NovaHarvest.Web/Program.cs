@@ -12,6 +12,9 @@ app.MapGet("/", () => Results.Content("""
         <link rel="stylesheet" href="/css/site.css">
     </head>
     <body>
+        <header>
+            <img src="/img/logo.png" alt="Logo de NovaHarvest" width="150">
+        </header>
         <h1>NovaHarvest</h1>
         <p>Bienvenido a NovaHarvest.</p>
         <p>Una plataforma para aprovechar los excedentes agrícolas del Valle del Jerte.</p>
@@ -28,11 +31,15 @@ app.MapGet("/", () => Results.Content("""
         
     </head>
     <body>
+         <header>
+            <img src="/img/logo.png" alt="Logo de NovaHarvest" width="150">
+        </header>
         <h1>Sobre NovaHarvest</h1>
         <p>Proyecto desarrollado en el IES Valle del Jerte.</p>
         <p>Autor: Raúl Albalat Pérez</p>
         <p>Versión: 0.1.0</p>
     </body>
+    
     </html>
     """, "text/html"));
     app.MapGet("/status", () => Results.Content($"""
@@ -44,6 +51,9 @@ app.MapGet("/", () => Results.Content("""
         <link rel="stylesheet" href="/css/site.css">
     </head>
     <body>
+        <header>
+            <img src="/img/logo.png" alt="Logo de NovaHarvest" width="150">
+        </header>
         <h1>Estado del servidor</h1>
         <p>Fecha y hora: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
         <p>Página generada por ASP.NET Core (Kestrel)</p>

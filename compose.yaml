@@ -1,7 +1,10 @@
 services:
   web:
-    image: nginx:1.27-alpine
+    build: ./web
     ports:
       - "8080:80"
-    volumes:
-      - ./web/public:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend

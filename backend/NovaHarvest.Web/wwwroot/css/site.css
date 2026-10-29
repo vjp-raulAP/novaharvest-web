@@ -3,12 +3,28 @@ body {
     margin: 0;
     background-color: #f4f7f4;
     color: #333;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background-color: #9ddda1;
     color: white;
     padding: 20px;
+    text-align: center;
+}
+
+header img {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
 main {
@@ -17,6 +33,7 @@ main {
 
 footer {
     background-color: #e0e0e0;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
+    margin-top: auto;
 }

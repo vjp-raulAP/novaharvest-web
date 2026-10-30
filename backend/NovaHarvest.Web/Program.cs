@@ -20,9 +20,12 @@ app.MapGet("/", () => Results.Content("""
                 <a href="/status">Estado del servidor</a>
             </nav>
         </header>
+        <main>
+
         <h1>NovaHarvest</h1>
         <p>Bienvenido a NovaHarvest.</p>
         <p>Una plataforma para aprovechar los excedentes agrícolas del Valle del Jerte.</p>
+        </main>
          <footer>
             <p>NovaHarvest · IES Valle del Jerte · 2026</p>
         </footer>
@@ -48,10 +51,12 @@ app.MapGet("/", () => Results.Content("""
                 <a href="/status">Estado del servidor</a>
             </nav>
         </header>
+        <main>
         <h1>Sobre NovaHarvest</h1>
         <p>Proyecto desarrollado en el IES Valle del Jerte.</p>
         <p>Autor: Raúl Albalat Pérez</p>
         <p>Versión: 0.1.0</p>
+        </main>
          <footer>
             <p>NovaHarvest · IES Valle del Jerte · 2026</p>
         </footer>
@@ -76,9 +81,11 @@ app.MapGet("/", () => Results.Content("""
                 <a href="/status">Estado del servidor</a>
             </nav>
         </header>
-        <h1>Estado del servidor</h1>
-        <p>Fecha y hora: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
-        <p>Página generada por ASP.NET Core (Kestrel)</p>
+        <main>
+            <h1>Estado del servidor</h1>
+            <p>Fecha y hora: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+            <p>Página generada por ASP.NET Core (Kestrel)</p>
+        </main>
          <footer>
             <p>NovaHarvest · IES Valle del Jerte · 2026</p>
         </footer>

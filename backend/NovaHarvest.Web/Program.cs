@@ -1,8 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-app.UseStaticFiles();
+app.MapStaticAssets();
 
-app.MapGet("/", () => Results.Content("""
+app.MapGet("/", () => Results.Content($"""
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -24,16 +24,18 @@ app.MapGet("/", () => Results.Content("""
 
         <h1>NovaHarvest</h1>
         <p>Bienvenido a NovaHarvest.</p>
-        <p>Una plataforma para aprovechar los excedentes agrícolas del Valle del Jerte.</p>
+        <p>Una plataforma que busca aprovechar los excedentes agrícolas del Valle del Jerte.</p>
+        <p>Está dirigida a agricultores que necesitan dar salida a sus productos sobrantes.</p>
+        <p>También permite a los consumidores encontrar productos agrícolas locales y reducir el desperdicio alimentario.</p>
         </main>
          <footer>
-            <p>NovaHarvest · IES Valle del Jerte · 2026</p>
+           <p>NovaHarvest · IES Valle del Jerte · {DateTime.Now.Year}</p>
         </footer>
     </body>
        
     </html>
     """, "text/html"));
-    app.MapGet("/about", () => Results.Content("""
+    app.MapGet("/about", () => Results.Content($""" 
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -58,7 +60,7 @@ app.MapGet("/", () => Results.Content("""
         <p>Versión: 0.1.0</p>
         </main>
          <footer>
-            <p>NovaHarvest · IES Valle del Jerte · 2026</p>
+            <p>NovaHarvest · IES Valle del Jerte · {DateTime.Now.Year}</p>
         </footer>
     </body>
        
@@ -87,7 +89,7 @@ app.MapGet("/", () => Results.Content("""
             <p>Página generada por ASP.NET Core (Kestrel)</p>
         </main>
          <footer>
-            <p>NovaHarvest · IES Valle del Jerte · 2026</p>
+            <p>NovaHarvest · IES Valle del Jerte · {DateTime.Now.Year}</p>
         </footer>
     </body>
        

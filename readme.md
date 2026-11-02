@@ -6,33 +6,43 @@
 
 Para iniciar NovaHarvest, abrimos una terminal en la carpeta principal del proyecto y ejecutamos:
 
-    docker compose up -d --build
+```bash
+docker compose up -d --build
+```
 
 Para comprobar que los contenedores están funcionando:
 
-    docker compose ps
+```bash
+docker compose ps
+```
 
 Accedemos a la aplicación desde el navegador:
 
-- **Inicio:** http://localhost:8080/
-- **Acerca de:** http://localhost:8080/about
-- **Estado del servidor:** http://localhost:8080/status
-- **Hoja de estilos:** http://localhost:8080/css/site.css
-- **Logotipo:** http://localhost:8080/img/logo.png
+- **Inicio:** [http://localhost:8080/](http://localhost:8080/)
+- **Acerca de:** [http://localhost:8080/about](http://localhost:8080/about)
+- **Estado del servidor:** [http://localhost:8080/status](http://localhost:8080/status)
+- **Hoja de estilos:** [http://localhost:8080/css/site.css](http://localhost:8080/css/site.css)
+- **Logotipo:** [http://localhost:8080/img/logo.png](http://localhost:8080/img/logo.png)
 
 Para detener los contenedores:
 
-    docker compose down
+```bash
+docker compose down
+```
 
 ### Ejecutar sin Docker
 
 Entramos en la carpeta del backend:
 
-    cd backend/NovaHarvest.Web
+```bash
+cd backend/NovaHarvest.Web
+```
 
 Ejecutamos la aplicación:
 
-    dotnet run
+```bash
+dotnet run
+```
 
 La aplicación se ejecuta directamente mediante Kestrel. Para acceder a ella, utilizamos la dirección que aparece en la terminal al iniciar el servidor.
 
@@ -49,7 +59,7 @@ El backend utiliza ASP.NET Core y Kestrel para procesar las peticiones y generar
 ### Diagrama de arquitectura
 
 ```mermaid
-graph TD
+flowchart TD
     A[Navegador - localhost:8080]
     B[NGINX - Puerto 80]
     C[ASP.NET Core - Puerto 8080]

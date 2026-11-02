@@ -49,23 +49,23 @@ El backend utiliza ASP.NET Core y Kestrel para procesar las peticiones y generar
 ### Diagrama de arquitectura
 
 ```mermaid
-    flowchart TD
-        A["🌐 NAVEGADOR<br/>localhost:8080"]
+flowchart TD
+    A["NAVEGADOR<br/>localhost:8080"]
 
-        subgraph DOCKER["🐳 ENTORNO DOCKER"]
-            B["🌍 WEB<br/>NGINX<br/>Puerto 80"]
-            C["⚙️ BACKEND<br/>ASP.NET Core<br/>KESTREL · Puerto 8080"]
+    subgraph DOCKER["ENTORNO DOCKER"]
+        B["WEB - NGINX<br/>Puerto 80"]
+        C["BACKEND - ASP.NET Core<br/>KESTREL - Puerto 8080"]
 
-            B -->|"Proxy inverso<br/>backend:8080"| C
-        end
+        B -->|"Proxy inverso: backend:8080"| C
+        C -->|"Respuesta"| B
+    end
 
-        A -->|"Petición HTTP"| B
-        C -->|"Respuesta HTTP"| A
+    A -->|"Petición HTTP"| B
+    B -->|"Respuesta HTTP"| A
 
-        style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
-        style B fill:#dcfce7,stroke:#16a34a,color:#14532d
-        style C fill:#fef3c7,stroke:#d97706,color:#78350f
-        style DOCKER fill:#f8fafc,stroke:#64748b,color:#1e293b
+    style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style B fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style C fill:#fef3c7,stroke:#d97706,color:#78350f
 ```
 
 ### Recorrido de una petición

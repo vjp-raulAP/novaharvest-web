@@ -58,11 +58,7 @@ El backend utiliza ASP.NET Core y Kestrel para procesar las peticiones y generar
 
 ### Diagrama de arquitectura
 
-```mermaid
-graph TD
-A[Navegador] --> B[NGINX]
-B --> C[ASP.NET Core]
-```
+![Arquitectura de NovaHarvest](docs/Esquema_Arquitectura.png)
 
 ### Recorrido de una petición
 

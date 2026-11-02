@@ -60,6 +60,7 @@ En mi archivo `Program.cs`, las páginas se generan utilizando `app.MapGet()` y 
 app.MapGet("/status", () => Results.Content($"""
     <!-- Aquí se encuentra el contenido HTML de la página -->
     """, "text/html"));
+```
 
 ## 8. Docker
 

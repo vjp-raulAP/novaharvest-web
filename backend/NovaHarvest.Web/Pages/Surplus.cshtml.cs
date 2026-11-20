@@ -1,0 +1,45 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using NovaHarvest.Web.Models;
+
+namespace NovaHarvest.Web.Pages;
+
+[ResponseCache(NoStore = true)]
+
+public class SurplusModel : PageModel
+{
+private const decimal SurplusDiscount = 0.30m;
+private const int BoxKg = 5;
+
+private const int ShelfLifeDays = 7;
+
+private const int LowStockKg = 50;
+
+//creo el objeto Excedente .
+    public Surplus Excedente { get; private set; } = new Surplus
+    {
+        Product = "Cereza Picota",
+        Producer = "Huerta Los Castaños",
+        Village = "Cabezuela del Valle",
+        HarvestDate = DateTime.Today.AddDays(-2),
+        AvailableKg = 343,
+        ReservedKg = 120,
+        PricePerKg = 3.20m,
+        Note = "<b>Recoger antes de las 14:00</b>"  
+    };
+    public int KilosDisponibles { get; set; }
+    public DateTime FechaLimite { get; set; }
+
+    public int DiasParaConsumir { get; set; }
+
+    //Calculo de los kilos disponibles . Seria Availablekg-ReservedKg
+    public void OnGet()
+        {
+            KilosDisponibles = Excedente.AvailableKg - Excedente.ReservedKg;
+            FechaLimite = Excedente.HarvestDate.AddDays(ShelfLifeDays);
+            DiasParaConsumir = (FechaLimite - DateTime.Today).Days;
+        }
+    
+
+}
+

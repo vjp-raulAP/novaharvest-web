@@ -9,4 +9,4 @@ app.MapStaticAssets();
 app.MapRazorPages();
 
 
-  app.Run();
+app.Run();

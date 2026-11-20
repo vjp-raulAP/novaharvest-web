@@ -2,10 +2,10 @@ namespace NovaHarvest.Web.Models;
 
 public class Surplus
 {
-    public string Product { get; set; }
-    public string Producer { get; set; }
+    public string Product { get; set; } = "";
+    public string Producer { get; set; } = "";
 
-    public string Village { get; set; }
+    public string Village { get; set; } = "";
 
     public DateTime HarvestDate { get; set; }
 

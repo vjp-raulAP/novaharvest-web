@@ -32,12 +32,25 @@ private const int LowStockKg = 50;
 
     public int DiasParaConsumir { get; set; }
 
+    public decimal PrecioExcedente { get; set; }
+
+    public int CajasDisponibles { get; set; }
+
+    public int KilosSueltos { get; set; }
+
     //Calculo de los kilos disponibles . Seria Availablekg-ReservedKg
     public void OnGet()
         {
             KilosDisponibles = Excedente.AvailableKg - Excedente.ReservedKg;
             FechaLimite = Excedente.HarvestDate.AddDays(ShelfLifeDays);
             DiasParaConsumir = (FechaLimite - DateTime.Today).Days;
+
+            PrecioExcedente = Excedente.PricePerKg - (Excedente.PricePerKg * SurplusDiscount);
+
+            CajasDisponibles = KilosDisponibles /BoxKg;
+
+            KilosSueltos = KilosDisponibles % BoxKg;
+            
         }
     
 

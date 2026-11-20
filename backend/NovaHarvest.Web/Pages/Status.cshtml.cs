@@ -7,7 +7,7 @@ namespace NovaHarvest.Web.Pages;
 public class StatusModel : PageModel
 {
     public DateTime ServerTime {get; set; }
-    public String ServerName {get; set; }
+    public String ServerName {get; set; } = "";
 
     public int Visits {get; set; }
 
@@ -15,7 +15,7 @@ public class StatusModel : PageModel
     {
         ServerTime = DateTime.Now;
         ServerName = Environment.MachineName;
-        
+
         SiteStats.Visits++;
         Visits = SiteStats.Visits;
     }

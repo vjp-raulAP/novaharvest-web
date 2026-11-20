@@ -1,27 +1,9 @@
 
 @page
-@using Microsoft.AspNetCore.Mvc.RazorPages
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaHarvest</title>
-    <link rel="stylesheet" href="/css/site.css">
-</head>
-<body>
-    <header>
-        <img src="/img/logo.png" alt="Logo de NovaHarvest" width="150">
-
-        <nav>
-            <a href="/">Inicio</a>
-            <a href="/about">Sobre el proyecto</a>
-            <a href="/status">Estado del servidor</a>
-        </nav>
-    </header>
-
-    <main>
+@{
+    ViewData["Title"]= "Inicio";
+}
         <h1>NovaHarvest</h1>
 
         <p>Bienvenido a NovaHarvest.</p>
@@ -33,10 +15,4 @@
         <p>También permite a los consumidores encontrar productos agrícolas locales y reducir el desperdicio alimentario.</p>
 
         <p>Hoy es @DateTime.Now.ToString("dddd, d 'de' MMMM 'de' yyyy")</p>
-    </main>
-
-    <footer>
-        <p>NovaHarvest · IES Valle del Jerte · @DateTime.Now.Year</p>
-    </footer>
-</body>
-</html>
+  

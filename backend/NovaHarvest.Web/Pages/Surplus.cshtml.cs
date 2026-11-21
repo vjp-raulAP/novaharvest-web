@@ -38,6 +38,10 @@ private const int LowStockKg = 50;
 
     public int KilosSueltos { get; set; }
 
+    public decimal ValorExcedente { get; set; }
+
+    public string EstadoExcedente { get; set; } = "";
+
     //Calculo de los kilos disponibles . Seria Availablekg-ReservedKg
     public void OnGet()
         {
@@ -51,6 +55,20 @@ private const int LowStockKg = 50;
 
             KilosSueltos = KilosDisponibles % BoxKg;
             
+            ValorExcedente = KilosDisponibles * PrecioExcedente;
+
+            if(KilosDisponibles == 0)
+                {
+                   EstadoExcedente = "Agotado"; 
+                }
+            else if (KilosDisponibles <= LowStockKg)
+                {
+                    EstadoExcedente = "¡Últimos kilos";
+                }
+            else
+                {
+                    EstadoExcedente = "Disponible";
+                }
         }
     
 

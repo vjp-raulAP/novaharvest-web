@@ -51,19 +51,19 @@ private const int LowStockKg = 50;
 
             PrecioExcedente = Excedente.PricePerKg - (Excedente.PricePerKg * SurplusDiscount);
 
-            CajasDisponibles = KilosDisponibles /BoxKg;
+            CajasDisponibles = KilosDisponibles / BoxKg;
 
             KilosSueltos = KilosDisponibles % BoxKg;
             
             ValorExcedente = KilosDisponibles * PrecioExcedente;
 
-            if(KilosDisponibles == 0)
+            if(KilosDisponibles <= 0)
                 {
                    EstadoExcedente = "Agotado"; 
                 }
             else if (KilosDisponibles <= LowStockKg)
                 {
-                    EstadoExcedente = "¡Últimos kilos";
+                    EstadoExcedente = "¡Últimos kilos!";
                 }
             else
                 {

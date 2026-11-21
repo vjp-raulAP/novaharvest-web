@@ -32,10 +32,20 @@
 
 <p>Kilos disponibles: @Model.KilosDisponibles</p>
 
-<p>@Model.CajasDisponibles cajas de 5 kg y @Model.KilosDisponibles kg sueltos</p>
+<p>@Model.CajasDisponibles cajas de 5 kg y @Model.KilosSueltos kg sueltos</p>
 
 <p> Valor del excedente: @Model.ValorExcedente.ToString("F2") €</p>
 
 <p>Estado: @Model.EstadoExcedente</p>
 
 <p>Nota del productor: @(Model.Excedente.Note ?? "Sin observaciones")</p>
+
+@* boton aparece deshabilitado cuando el producto está agotado*@
+@if (Model.KilosDisponibles > 0)
+    {
+        <a href = "/ticket">Reservar</a> 
+    }
+    else
+    {
+        <button disabled>Reservar</button>
+    }

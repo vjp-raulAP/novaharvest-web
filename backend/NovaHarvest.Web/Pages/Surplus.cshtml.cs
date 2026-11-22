@@ -52,8 +52,11 @@ private const int LowStockKg = 50;
     public void OnGet()
         {
             KilosDisponibles = Excedente.AvailableKg - Excedente.ReservedKg;
+
             FechaLimite = Excedente.HarvestDate.AddDays(ShelfLifeDays);
+
             DiasParaConsumir = (FechaLimite - DateTime.Today).Days;
+            
             EsUrgente = DiasParaConsumir <= 2 && KilosDisponibles > 0;
 
             PuedeReservar = KilosDisponibles > 0;

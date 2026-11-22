@@ -5,7 +5,7 @@
     ViewData["Title"] = "Excedente";
 }
 
-<h1>Excedente agrícola</h1>
+<h1>Excedente destacado</h1>
 
 <p>Producto: @Model.Excedente.Product</p>
 
@@ -18,14 +18,9 @@
 <p>Consumir antes del: @Model.FechaLimite.ToString("dd/MM/yyyy")</p>
 <p>Precio con descuento: @Model.PrecioExcedente</p>
 
-@if (Model.DiasParaConsumir <= 2 && Model.KilosDisponibles > 0)
-        {
-          <p class = "urgent">Días para consumirlo: @Model.DiasParaConsumir</p>  
-        }
-        else
-        {
-         <p>Días para consumirlo: @Model.DiasParaConsumir</p>   
-        }
+
+<p class="@(Model.EsUrgente ? "urgent" : null)">Días para consumirlo: @Model.DiasParaConsumir</p>
+
 <p>Precio original: @Model.Excedente.PricePerKg.ToString("F2") € / kg</p>
 
 <p>Precio de excedente: @Model.PrecioExcedente.ToString("F2") € / kg</p>
@@ -41,11 +36,4 @@
 <p>Nota del productor: @(Model.Excedente.Note ?? "Sin observaciones")</p>
 
 @* boton aparece deshabilitado cuando el producto está agotado*@
-@if (Model.KilosDisponibles > 0)
-    {
-        <a href = "/ticket">Reservar</a> 
-    }
-    else
-    {
-        <button disabled>Reservar</button>
-    }
+<button disabled="@(!Model.PuedeReservar)">Reservar</button>

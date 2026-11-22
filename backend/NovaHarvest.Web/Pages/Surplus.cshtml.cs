@@ -43,12 +43,24 @@ private const int LowStockKg = 50;
 
     public string EstadoExcedente { get; set; } = "";
 
+    //corregir el if . he leido en el manual que no puede haber @if.
+    public bool EsUrgente { get; set; }
+
+    public bool PuedeReservar { get; set; }
+
+    public string TextoBoton { get; set; } = "";
+
     //Calculo de los kilos disponibles . Seria Availablekg-ReservedKg
     public void OnGet()
         {
             KilosDisponibles = Excedente.AvailableKg - Excedente.ReservedKg;
             FechaLimite = Excedente.HarvestDate.AddDays(ShelfLifeDays);
             DiasParaConsumir = (FechaLimite - DateTime.Today).Days;
+            EsUrgente = DiasParaConsumir <= 2 && KilosDisponibles > 0;
+
+            PuedeReservar = KilosDisponibles > 0;
+
+            TextoBoton = PuedeReservar ? "Reservar" : "Agotado";
 
             PrecioExcedente = Excedente.PricePerKg - (Excedente.PricePerKg * SurplusDiscount);
 

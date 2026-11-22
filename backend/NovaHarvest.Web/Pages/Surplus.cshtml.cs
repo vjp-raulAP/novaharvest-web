@@ -4,8 +4,6 @@ using NovaHarvest.Web.Models;
 
 namespace NovaHarvest.Web.Pages;
 
-[ResponseCache(NoStore = true)]
-
 public class SurplusModel : PageModel
 {
 private const decimal SurplusDiscount = 0.30m;

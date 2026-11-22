@@ -15,7 +15,8 @@ private const int ShelfLifeDays = 7;
 
 private const int LowStockKg = 50;
 
-//creo el objeto Excedente .
+
+
     public Surplus Excedente { get; private set; } = new Surplus
     {
         Product = "Cereza Picota",
@@ -63,7 +64,7 @@ private const int LowStockKg = 50;
                 }
             else if (KilosDisponibles <= LowStockKg)
                 {
-                    EstadoExcedente = "¡Últimos kilos!";
+                    EstadoExcedente = "¡Quedan pocos kilos!";
                 }
             else
                 {
